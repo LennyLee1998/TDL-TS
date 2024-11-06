@@ -1,5 +1,5 @@
 import type { Equal, Expect } from '@type-challenges/utils'
-
+import type { TupleToObject } from './template'
 const tuple = ['tesla', 'model 3', 'model X', 'model Y'] as const
 const tupleNumber = [1, 2, 3, 4] as const
 const sym1 = Symbol(1)
@@ -14,5 +14,4 @@ type cases = [
   Expect<Equal<TupleToObject<typeof tupleMix>, { 1: 1, '2': '2', 3: 3, '4': '4', [sym1]: typeof sym1 }>>,
 ]
 
-// @ts-expect-error
 type error = TupleToObject<[[1, 2], {}]>
