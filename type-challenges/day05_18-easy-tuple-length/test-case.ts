@@ -1,13 +1,19 @@
-import type { Equal, Expect } from '@type-challenges/utils'
-
-const tesla = ['tesla', 'model 3', 'model X', 'model Y'] as const
-const spaceX = ['FALCON 9', 'FALCON HEAVY', 'DRAGON', 'STARSHIP', 'HUMAN SPACEFLIGHT'] as const
-
+import type { Equal, Expect } from "@type-challenges/utils";
+import type { Length } from "./template";
+const tesla = ["tesla", "model 3", "model X", "model Y"] as const;
+const spaceX = [
+  "FALCON 9",
+  "FALCON HEAVY",
+  "DRAGON",
+  "STARSHIP",
+  "HUMAN SPACEFLIGHT",
+] as const;
+// type Space = typeof spaceX;
 type cases = [
   Expect<Equal<Length<typeof tesla>, 4>>,
   Expect<Equal<Length<typeof spaceX>, 5>>,
   // @ts-expect-error
   Length<5>,
   // @ts-expect-error
-  Length<'hello world'>,
-]
+  Length<"hello world">
+];
