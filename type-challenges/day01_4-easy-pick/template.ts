@@ -3,7 +3,7 @@
 // type MyPick<T, K extends keyof T> = { [P in K]: T[P] };
 // in is mapped types for union type
 // keyof : return union type of an type
-// extends compare K & keyof T
+// extends compare K & keyof T 会依次循环对比
 
 // key: mapped types & indexed & keyof & Generic Constraints
 export type MyPick<T, K extends keyof T> = { [P in K]: T[P] };
