@@ -13,6 +13,7 @@ type spaceX = [
   "STARSHIP",
   "HUMAN SPACEFLIGHT"
 ];
+let myTuple: [string, number] = ["", 0]; // 先赋初始值，确保类型符合
 
 type teslaLength = Length<tesla>; // expected 4
 type spaceXLength = Length<spaceX>; // expected 5
