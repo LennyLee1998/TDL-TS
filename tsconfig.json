@@ -4,5 +4,6 @@
     "strictNullChecks": true,
     "moduleDetection": "force",
     "lib": ["ES2015"],
+    "noImplicitAny": true 
   }
 }   
