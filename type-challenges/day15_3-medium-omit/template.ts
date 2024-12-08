@@ -21,7 +21,7 @@ interface Todo {
   description: string;
   completed: boolean;
 }
-
+// type a = Omit<>
 type TodoPreview = MyOmit<Todo, "description" | "completed">;
 
 const todo: TodoPreview = {
