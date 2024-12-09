@@ -3,7 +3,7 @@
     "strict": true,
     "strictNullChecks": true,
     "moduleDetection": "force",
-    "lib": ["ES2015"],
+    "lib": ["ES2015", "DOM"],
     "noImplicitAny": true 
   }
 }   
