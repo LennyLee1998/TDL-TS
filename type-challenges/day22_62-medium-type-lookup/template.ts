@@ -3,11 +3,13 @@
 
 // In this challenge, we would like to get the corresponding type by searching for the common type field in the union Cat | Dog. In other words, we will expect to get Dog for LookUp<Dog | Cat, 'dog'> and Cat for LookUp<Dog | Cat, 'cat'> in the following example.
 
-export type LookUp<U extends { type: string }, T extends string> = {
+export type LookUp<U extends { type: string }, T extends string> = U extends {
   type: T;
-} extends U
+}
   ? U
   : never;
+
+// U = Cat | Dog
 
 interface Cat {
   type: "cat";
@@ -20,14 +22,6 @@ interface Dog {
   color: "brown" | "white" | "black";
 }
 
-interface a {
-  name: string;
-}
-// interface b
-
-// type a = Cat | Dog
-// type b = {[K in a] :}
-
 type MyDogType = LookUp<Cat | Dog, "dog">; // expected to be `Dog`
 
 type Animal = { type: "cat"; name: string };
@@ -39,3 +33,16 @@ type AllTypes = Animal | Vehicle;
 
 type CatType = LookUp<AllTypes, "cat">; // 依然会返回 never，因为 { type: 'cat' } 并不是 AllTypes 的一个结构形式
 type UnknownType = LookUp<AllTypes, "bicycle">; // 依然返回 never
+
+type Look<U extends { type: string }, T extends string> = {
+  type: T;
+} extends U
+  ? U
+  : never;
+type C = Look<{ type: "aa"; age: number } | { type: "bb"; age: string }, "aa">;
+
+type A = { name: string } extends
+  | { name: number; age: number }
+  | { name: string; age: string }
+  ? true
+  : false;
